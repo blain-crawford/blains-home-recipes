@@ -1,1 +1,1 @@
-(()=>{let e=document.createElement("h1"),t=document.getElementById("content");e.innerText="Hello, Worlds!",t.appendChild(e)})();
+(()=>{let e=document.createElement("h1"),t=document.getElementById("content");e.innerText="Hello, World!",t.appendChild(e)})();
