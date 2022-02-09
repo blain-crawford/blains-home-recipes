@@ -7,6 +7,7 @@ module.exports = {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
   },
+  devtool: "source-map",
   devServer: {
     hot: 'only',
     static: {
@@ -19,6 +20,10 @@ module.exports = {
       {
         test: /\.js$/i,
         exclude: /node_modules/
+      },
+      {
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader']
       }
     ]
   }

@@ -1,0 +1,41 @@
+html, 
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.header {
+  color: red;
+  border: 1px solid green;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.current-page {
+  background-color: blue;
+}
+
+h1 {
+  font-size: 50px;
+}
+
+.navbar {
+  list-style-type: none;
+  width: 50%;
+  margin: 0 auto;
+  display: flex;
+  padding: 15px;
+  color: green;  
+  border: 1px solid blue;
+}
+
+li {
+  cursor: pointer;
+  font-size: 30px;
+  text-align: center;
+  margin: 0 auto;
+  width: 20%;
+  padding: 5px;
+  border: 1px solid red;
+}
