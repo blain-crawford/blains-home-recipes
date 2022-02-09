@@ -1,12 +1,13 @@
+
 let mainContent = (() => {
-  const populateLandingPage = function () {
-    let h1 = document.createElement('h1');
-    let content = document.getElementById('content');
-    h1.innerText = 'Hello, World!!';
-    content.appendChild(h1);
+  const createHeader = function () {
+    let headerDiv = document.createElement('div');
+    let pageContent = document.getElementById('content');
+    headerDiv.innerText = 'Hello, World!!';
+    content.appendChild(headerDiv);
   }
 
-  return{populateLandingPage}
+  return{createHeader}
 })();
 
-mainContent.populateLandingPage();
+mainContent.createHeader();
