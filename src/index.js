@@ -60,7 +60,17 @@ const switchPages = function () {
     link.classList.remove('current-page');
   });
   this.classList.add('current-page');
-  currentPage.homePage();
+  switch (this.textContent) {
+    case 'Home':
+      currentPage.homePage();
+      break;
+    case 'Recipes':
+      currentPage.recipesPage();
+      break;
+    case 'Contact':
+      currentPage.contactPage();
+      break;
+  };
 };
 
 links.forEach((link) => {
