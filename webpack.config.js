@@ -10,15 +10,15 @@ module.exports = {
   devServer: {
     hot: 'only',
     static: {
-      path: path.resolve(__dirname, 'dist'),
+      directory: 'dist',
       watch: true
     }
   },
   module: {
-    entry: './src/index.js',
     rules: [
       {
-        test: /\.js$/i
+        test: /\.js$/i,
+        exclude: /node_modules/
       }
     ]
   }
