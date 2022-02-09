@@ -5,10 +5,12 @@ const headerContent = (() => {
     const headerDiv = document.createElement('div');
     const siteTitle = document.createElement('h1');
     const pageContent = document.getElementById('content');
+    const navContainer = document.createElement('div');
     const navBar = document.createElement('ul');
     const home = document.createElement('li');
     const recipes = document.createElement('li');
     const contact = document.createElement('li');
+    const lowerHeader = document.createElement('div');
 
     siteTitle.innerText = 'Blain Crawford\'s Home Recipes';
     home.innerText = 'Home';
@@ -17,9 +19,12 @@ const headerContent = (() => {
 
     headerDiv.classList = 'header';
     navBar.classList = 'navbar';
+    lowerHeader.classList = 'lowerheader'
 
     headerDiv.appendChild(siteTitle);
-    headerDiv.appendChild(navBar);
+    headerDiv.appendChild(navContainer);
+    headerDiv.appendChild(lowerHeader);
+    navContainer.appendChild(navBar);
     navBar.appendChild(home);
     navBar.appendChild(recipes);
     navBar.appendChild(contact);
