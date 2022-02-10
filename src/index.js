@@ -1,4 +1,5 @@
 import './styles.css';
+import Ingredients from './images/ingredients.jpg'
 
 const headerContent = (() => {
   const createHeader = (() => {
@@ -12,7 +13,7 @@ const headerContent = (() => {
     const contact = document.createElement('li');
     const lowerHeader = document.createElement('div');
 
-    siteTitle.innerText = 'Blain Crawford\'s Home Recipes';
+    siteTitle.innerText = 'Blain\'s Home Recipes';
     home.innerText = 'Home';
     recipes.innerText = 'Recipes';
     contact.innerText = 'Contact';
@@ -32,28 +33,52 @@ const headerContent = (() => {
   })();
 })();
 
+class Page {
+  constructor (bodyTopper, contentWrapper, pageClass, images) {
+    this.bodyTopper = bodyTopper;
+    this.contentWrapper = contentWrapper;
+    this.contentWrapper.classList = pageClass;
+    this.images = images;
+  };
+
+  homePageBody () {
+    this.contentWrapper.innerHTML = '';
+
+    const h1 = document.createElement('h2');
+    const headerImage = new Image();
+
+    h1.textContent = this.bodyTopper;
+    headerImage.src = this.images;
+    headerImage.classList = 'home-image';
+
+    this.contentWrapper.appendChild(h1);
+    this.contentWrapper.appendChild(headerImage);
+  };
+};
+
 const mainContent = function () {
   let pageBody = document.createElement('div')
   document.body.appendChild(pageBody);
 
   let homePage = function () {
-    pageBody.innerHTML = ''
-    const h1 = document.createElement('h1');
-    h1.textContent = 'Home Page!';
-    pageBody.appendChild(h1)
+    let homePage = new Page('Welcome to Blain\'s Home Recipes!', pageBody, 'home-page', Ingredients);
+    homePage.homePageBody();
   };
+
   let recipesPage = function () {
     pageBody.innerHTML = ''
     const h1 = document.createElement('h1');
     h1.textContent = 'Recipes Page!';
     pageBody.appendChild(h1)
   };
+
   let contactPage = function () {
     pageBody.innerHTML = ''
     const h1 = document.createElement('h1');
     h1.textContent = 'Contact Page!';
     pageBody.appendChild(h1)
   };
+
   return {homePage, recipesPage, contactPage};
 };
 
