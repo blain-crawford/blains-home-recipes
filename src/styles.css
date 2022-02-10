@@ -75,3 +75,24 @@ li {
   width: 75%;
   height: auto;
 }
+
+#footer {
+  text-align: center;
+  color: rgb(206, 128, 39);
+	font-size: 20px;
+  margin-top: 0 auto;
+	-webkit-text-stroke: .5px black;
+  text-shadow: 5px 0px 10px rgba(155, 93, 46, 0.68);
+  padding: 10px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.527),rgba(0, 0, 0, 0.7)), url(../src/images/table_overwiev.jpg);
+  background-size:cover;
+  background-position: bottom;
+  position:relative;
+  width: 100%;
+  bottom: 0;
+}
+
+h3,
+p {
+  margin: 0 auto;
+}

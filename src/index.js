@@ -43,7 +43,8 @@ const headerContent = (() => {
 
     headerDiv.classList = 'header';
     navBar.classList = 'navbar';
-    lowerHeader.classList = 'lowerheader'
+    lowerHeader.classList = 'lowerheader';
+    home.classList = 'current-page';
 
     headerDiv.appendChild(siteTitle);
     headerDiv.appendChild(navContainer);
@@ -54,13 +55,17 @@ const headerContent = (() => {
     navBar.appendChild(contact);
     pageContent.appendChild(headerDiv);
   })();
+  let pageBody = document.createElement('div')
+  document.body.appendChild(pageBody);
+  let homePage = new Page('Welcome to Blain\'s Home Recipes!', pageBody, 'home-page', Ingredients);
+  homePage.homePageBody();
 
 })();
 
 
 
 const mainContent = function () {
-  let pageBody = document.createElement('div')
+  let pageBody = document.querySelector('.home-page');
   document.body.appendChild(pageBody);
 
   let homePage = function () {
