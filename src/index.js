@@ -1,6 +1,29 @@
 import './styles.css';
 import Ingredients from './images/ingredients.jpg'
 
+class Page {
+  constructor (bodyTopper, contentWrapper, pageClass, images) {
+    this.bodyTopper = bodyTopper;
+    this.contentWrapper = contentWrapper;
+    this.contentWrapper.classList = pageClass;
+    this.images = images;
+  };
+
+  homePageBody () {
+    this.contentWrapper.innerHTML = '';
+
+    const pageTitle = document.createElement('h2');
+    const headerImage = new Image();
+
+    pageTitle.textContent = this.bodyTopper;
+    headerImage.src = this.images;
+    headerImage.classList = 'home-image';
+
+    this.contentWrapper.appendChild(pageTitle);
+    this.contentWrapper.appendChild(headerImage);
+  };
+};
+
 const headerContent = (() => {
   const createHeader = (() => {
     const headerDiv = document.createElement('div');
@@ -31,30 +54,10 @@ const headerContent = (() => {
     navBar.appendChild(contact);
     pageContent.appendChild(headerDiv);
   })();
+
 })();
 
-class Page {
-  constructor (bodyTopper, contentWrapper, pageClass, images) {
-    this.bodyTopper = bodyTopper;
-    this.contentWrapper = contentWrapper;
-    this.contentWrapper.classList = pageClass;
-    this.images = images;
-  };
 
-  homePageBody () {
-    this.contentWrapper.innerHTML = '';
-
-    const h1 = document.createElement('h2');
-    const headerImage = new Image();
-
-    h1.textContent = this.bodyTopper;
-    headerImage.src = this.images;
-    headerImage.classList = 'home-image';
-
-    this.contentWrapper.appendChild(h1);
-    this.contentWrapper.appendChild(headerImage);
-  };
-};
 
 const mainContent = function () {
   let pageBody = document.createElement('div')
