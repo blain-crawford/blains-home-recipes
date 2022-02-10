@@ -1,5 +1,6 @@
 import './styles.css';
 import Ingredients from './images/ingredients.jpg'
+import Chrain from './images/chrain.jpg'
 
 class Page {
   constructor (bodyTopper, contentWrapper, pageClass, images) {
@@ -13,6 +14,8 @@ class Page {
     this.contentWrapper.innerHTML = '';
 
     const pageTitle = document.createElement('h2');
+    const cooking = document.createElement('h3');
+    cooking.innerHTML = 'Click on Recipes to get cooking!'
     const headerImage = new Image();
 
     pageTitle.textContent = this.bodyTopper;
@@ -20,8 +23,29 @@ class Page {
     headerImage.classList = 'home-image';
 
     this.contentWrapper.appendChild(pageTitle);
+    this.contentWrapper.appendChild(cooking);
     this.contentWrapper.appendChild(headerImage);
   };
+
+  contactPageBody () {
+    this.contentWrapper.innerHTML = '';
+
+    const pageTitle = document.createElement('h2');
+    const introContainer = document.createElement('div');
+    const intro = document.createElement('p');
+    const headerImage = new Image();
+
+    pageTitle.textContent = this.bodyTopper;
+    intro.textContent = 'Blain and Christina have been living together for nearly three years now.  Both computer programmers by day, they specialize as cooks with many different specialties at night, and on weekends.  You can find them out seeing live music, playing video games with friends, or in the kitchen making the delicious food on this site, and much more when they aren\'t writing music or programs!'
+    headerImage.src = this.images;
+    headerImage.classList = 'home-image';
+    introContainer.classList = 'intro-container'
+    
+    introContainer.appendChild(intro);
+    this.contentWrapper.appendChild(pageTitle);
+    this.contentWrapper.appendChild(headerImage);
+    this.contentWrapper.appendChild(introContainer);
+  }
 };
 
 const headerContent = (() => {
@@ -81,10 +105,8 @@ const mainContent = function () {
   };
 
   let contactPage = function () {
-    pageBody.innerHTML = ''
-    const h1 = document.createElement('h1');
-    h1.textContent = 'Contact Page!';
-    pageBody.appendChild(h1)
+    let contactPage = new Page('Let\'s meet our cooks!!', pageBody, 'home-page', Chrain);
+    contactPage.contactPageBody();
   };
 
   return {homePage, recipesPage, contactPage};

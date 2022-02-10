@@ -63,7 +63,7 @@ li {
 }
 
 .lowerheader {
-  height: 200px;
+  height: 75px;
 }
 
 .home-page {
@@ -92,7 +92,14 @@ li {
   bottom: 0;
 }
 
-h3,
+h3 {
+  text-align: center;
+  color: rgb(206, 128, 39);
+	font-size: 20px;
+  margin-top: 0 auto;
+	-webkit-text-stroke: .5px black;
+}
+
 p {
   margin: 0 auto;
 }
