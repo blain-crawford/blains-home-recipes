@@ -166,10 +166,6 @@ const mainContent = function () {
     {name: 'Salmon Bagel with Avocado', picture: BagelAvocado, id: 1},
     {name: 'Gumbo', picture: Gumbo, id: 2},
     {name: 'Pecan Pie', picture: Pie, id: 3},
-    {name: 'Gochujang Shortribs', picture: ShortRibs, id: 4},
-    {name: 'Salmon Bagel with Avocado', picture: BagelAvocado, id: 1},
-    {name: 'Gumbo', picture: Gumbo, id: 2},
-    {name: 'Pecan Pie', picture: Pie, id: 3},
     {name: 'Gochujang Shortribs', picture: ShortRibs, id: 4}
   ]
 
