@@ -55,11 +55,11 @@ h2 {
 
 li {
   cursor: pointer;
-  font-size: 20px;
+  font-size: 30px;
   text-align: center;
-  text-decoration: underline;
   width: 10%;
   padding: 5px;
+  list-style-type: none;
 }
 
 .lowerheader {
@@ -78,7 +78,13 @@ li {
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: space-between;
+  align-items: center;
+}
+
+.recipe-page li {
+  margin: 0 auto;
+  list-style: number;
+  font-size: 25px;
 }
 
 .home-image {
@@ -102,7 +108,7 @@ li {
 
 .recipe {
   display: flex;
-  gap: 30px;
+  gap: 150px;
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
