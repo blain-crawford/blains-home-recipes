@@ -67,5 +67,6 @@ li {
 }
 
 .home-image {
-
+  width: 200px;
+  height: auto;
 }
