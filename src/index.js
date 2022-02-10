@@ -94,23 +94,27 @@ const displayRecipePage = function (page) {
   switch (page) {
     case '1':
     pageBody.innerHTML = '';
-    pageBody.innerHTML = `<h1>Smoked Salmon Bagel and Avocado!</h1><br><img src=${BagelAvocado} class='recipe-image'>`
-    pageBody.classList = 'recipe-page'
+    pageBody.innerHTML = `<h1>Smoked Salmon Bagel and Avocado!</h1><img src=${BagelAvocado} class='recipe-image'>`;
+    pageBody.appendChild(returnToRecipes);
+    pageBody.classList = 'recipe-page';
     break;
     case '2':
     pageBody.innerHTML = '';
-    pageBody.innerHTML = `<h1>Gumbo</h1><br><img src=${Gumbo} class='recipe-image'>`
-    pageBody.classList = 'recipe-page'
+    pageBody.innerHTML = `<h1>Gumbo</h1><br><img src=${Gumbo} class='recipe-image'>`;
+    pageBody.appendChild(returnToRecipes);
+    pageBody.classList = 'recipe-page';
     break;
     case '3':
     pageBody.innerHTML = '';
-    pageBody.innerHTML = `<h1>Pecan Pie!</h1><br><img src=${Pie} class='recipe-image'>`
-    pageBody.classList = 'recipe-page'
+    pageBody.innerHTML = `<h1>Pecan Pie!</h1><br><img src=${Pie} class='recipe-image'>`;
+    pageBody.appendChild(returnToRecipes);
+    pageBody.classList = 'recipe-page';
     break;
     case '4':
     pageBody.innerHTML = '';
-    pageBody.innerHTML = `<h1>Gochujang Short Ribs!</h1><br><img src=${ShortRibs} class='recipe-image'>`
-    pageBody.classList = 'recipe-page'
+    pageBody.innerHTML = `<h1>Gochujang Short Ribs!</h1><br><img src=${ShortRibs} class='recipe-image'>`;
+    pageBody.appendChild(returnToRecipes);
+    pageBody.classList = 'recipe-page';
     break;
   }
 }

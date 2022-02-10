@@ -91,6 +91,7 @@ li {
   height: auto;
   border-radius: 15%;
   cursor: pointer;
+  margin-bottom: 50px;
 }
 
 .intro-container {
