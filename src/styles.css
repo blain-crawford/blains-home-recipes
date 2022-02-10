@@ -71,15 +71,42 @@ li {
   margin: 0 auto;
 }
 
+.recipe-page {
+  text-align: center;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
 .home-image {
   width: 75%;
   height: auto;
+}
+
+.recipe-image {
+  width: 300px;
+  height: auto;
+  border-radius: 15%;
+  cursor: pointer;
 }
 
 .intro-container {
   width: 50%;
   margin: 15px auto 15px auto;
   padding: 40px;
+}
+
+.recipe {
+  display: flex;
+  gap: 30px;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
 }
 
 #footer {
