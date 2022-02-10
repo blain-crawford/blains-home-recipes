@@ -76,6 +76,12 @@ li {
   height: auto;
 }
 
+.intro-container {
+  width: 50%;
+  margin: 15px auto 15px auto;
+  padding: 40px;
+}
+
 #footer {
   text-align: center;
   color: rgb(206, 128, 39);
@@ -102,4 +108,7 @@ h3 {
 
 p {
   margin: 0 auto;
+  color: rgb(206, 128, 39);
+	font-size: 20px;
+  -webkit-text-stroke: .25px black;
 }

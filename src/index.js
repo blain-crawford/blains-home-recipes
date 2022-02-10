@@ -36,7 +36,7 @@ class Page {
     const headerImage = new Image();
 
     pageTitle.textContent = this.bodyTopper;
-    intro.textContent = 'Blain and Christina have been living together for nearly three years now.  Both computer programmers by day, they specialize as cooks with many different specialties at night, and on weekends.  You can find them out seeing live music, playing video games with friends, or in the kitchen making the delicious food on this site, and much more when they aren\'t writing music or programs!'
+    intro.textContent = 'Blain and Christina (Chrain) have been living together for nearly three years now.  Both are computer programmers by day, but at night, and on weekends, they specialize as cooks with many different specialties.  When not at work you can find them out seeing live music, playing video games with friends, or in the kitchen making the delicious food on this site, and much more when they aren\'t writing music or programs!';
     headerImage.src = this.images;
     headerImage.classList = 'home-image';
     introContainer.classList = 'intro-container'
@@ -60,7 +60,7 @@ const headerContent = (() => {
     const contact = document.createElement('li');
     const lowerHeader = document.createElement('div');
 
-    siteTitle.innerText = 'Blain\'s Home Recipes';
+    siteTitle.innerText = 'Chrain\'s Home Recipes';
     home.innerText = 'Home';
     recipes.innerText = 'Recipes';
     contact.innerText = 'Contact';
@@ -81,7 +81,7 @@ const headerContent = (() => {
   })();
   let pageBody = document.createElement('div')
   document.body.appendChild(pageBody);
-  let homePage = new Page('Welcome to Blain\'s Home Recipes!', pageBody, 'home-page', Ingredients);
+  let homePage = new Page('Welcome to Chrain\'s Home Recipes!', pageBody, 'home-page', Ingredients);
   homePage.homePageBody();
 
 })();
@@ -93,7 +93,7 @@ const mainContent = function () {
   document.body.appendChild(pageBody);
 
   let homePage = function () {
-    let homePage = new Page('Welcome to Blain\'s Home Recipes!', pageBody, 'home-page', Ingredients);
+    let homePage = new Page('Welcome to Chrain\'s Home Recipes!', pageBody, 'home-page', Ingredients);
     homePage.homePageBody();
   };
 
