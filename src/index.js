@@ -5,6 +5,12 @@ import BagelAvocado from './images/bagel_avocado.jpg';
 import Gumbo from './images/gumbo.jpg';
 import ShortRibs from './images/shortribs.jpg';
 import Pie from './images/pie.jpg';
+const recipes = [
+  { name: 'Salmon Bagel with Avocado', picture: BagelAvocado, id: 1, ingredients: '<ul><li>Bagel</li><li>Smoked Salmon</li><li>Avocado</li><li>Pickeled Onions and Jalepenós</li><li>Hot Sauce</li></ul>' },
+  { name: 'Gumbo', picture: Gumbo, id: 2 },
+  { name: 'Pecan Pie', picture: Pie, id: 3 },
+  { name: 'Gochujang Shortribs', picture: ShortRibs, id: 4 },
+];
 
 class Page {
   constructor(bodyTopper, contentWrapper, pageClass, images) {
@@ -12,7 +18,7 @@ class Page {
     this.contentWrapper = contentWrapper;
     this.contentWrapper.classList = pageClass;
     this.images = images;
-  }
+  };
 
   homePageBody() {
     this.contentWrapper.innerHTML = '';
@@ -41,7 +47,7 @@ class Page {
 
     pageTitle.textContent = this.bodyTopper;
     intro.textContent =
-      'Blain and Christina (Chrain) have been living together for nearly three years now.  Both are computer programmers by day, but at night, and on weekends, they specialize as cooks with many different specialties.  When not at work you can find them out seeing live music, playing video games with friends, or in the kitchen making the delicious food on this site, and much more when they aren\'t writing music or programs!';
+      'Blain and Christina (Chrain) have been living together for nearly three years now.  Both are computer programmers and musicians by day, but at night, and on weekends, they specialize as cooks with many different specialties.  When not at work you can find them out seeing live music, playing video games with friends, or in the kitchen making the delicious food on this site, and much more!';
     headerImage.src = this.images;
     headerImage.classList = 'home-image';
     introContainer.classList = 'intro-container';
@@ -175,16 +181,10 @@ const headerContent = (() => {
 })();
 
 const mainContent = function () {
-  let pageBody = document.querySelector('.home-page');
+  const pageBody = document.querySelector('.home-page');
   document.body.appendChild(pageBody);
-  let recipes = [
-    { name: 'Salmon Bagel with Avocado', picture: BagelAvocado, id: 1, ingredients: '<ul><li>Bagel</li><li>Smoked Salmon</li><li>Avocado</li><li>Pickeled Onions and Jalepenós</li><li>Hot Sauce</li></ul>' },
-    { name: 'Gumbo', picture: Gumbo, id: 2 },
-    { name: 'Pecan Pie', picture: Pie, id: 3 },
-    { name: 'Gochujang Shortribs', picture: ShortRibs, id: 4 },
-  ];
 
-  let homePage = function () {
+  const homePage = function () {
     let homePage = new Page(
       'Welcome to Chrain\'s Home Recipes!',
       pageBody,
@@ -194,18 +194,18 @@ const mainContent = function () {
     homePage.homePageBody();
   };
 
-  let recipesPage = function () {
-    let contactPage = new Page(
+  const recipesPage = function () {
+    const recipePage = new Page(
       'The real star of the show. . .the FOOD!',
       pageBody,
       'recipe-page',
       recipes
     );
-    contactPage.recipesPageBody();
+    recipePage.recipesPageBody();
   };
 
-  let contactPage = function () {
-    let contactPage = new Page(
+  const contactPage = function () {
+    const contactPage = new Page(
       'Let\'s meet our cooks!!',
       pageBody,
       'home-page',
