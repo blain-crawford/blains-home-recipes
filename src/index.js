@@ -7,10 +7,10 @@ import ShortRibs from './images/shortribs.jpg';
 import Pie from './images/pie.jpg';
 
 const recipes = [
-  { name: 'Salmon Bagel with Avocado', picture: BagelAvocado, id: 1, ingredients: ['Bagels','Smoked Salmon','Avocado','Pickeled Onions and Jalepenós', 'Hot Sauce']},
-  { name: 'Gumbo', picture: Gumbo, id: 2 },
-  { name: 'Pecan Pie', picture: Pie, id: 3 },
-  { name: 'Gochujang Shortribs', picture: ShortRibs, id: 4 },
+  { name: 'Smoked Bluefish Pâté Bagel with Avocado', picture: BagelAvocado, id: 1, ingredients: ['Bagels','Smoked Bluefish Pâté', 'feta cheese', 'Avocado','Pickeled Onions and Jalepenós', 'Hot Sauce'], instructions: ['Start off by making sure you get fresh bagels (this is a MUST for maximum delicious-ness), and toast them well to get a nice crispy inside!  This will help to keep a contrasting texture to all of the other ingredients', 'Spread a healthy layer of Bluefish Pâté on each slice of your bagel and spinkle a bit of feta cheese over top of it', 'Next, dice up some fresh spinach and toss in a bit of the juice from your pickled jalepènos for a bit of extra bite', 'Finally garnish with pickeled jalepènos and pickled onion, serve with a side of avocado and with salt, pepper, and your choice of hotsauce and get ready to get your day started with a healthy and incredible breakfast!']},
+  { name: 'Gumbo', picture: Gumbo, id: 2, ingredients: ['4 bone-in skin-on chicken thighs', '3 teaspsoons kosher salt, divided', ' 2 teaspoons black pepper, divided', '1/2 cup grapeseed oil', '1/2 cup all purpose flour', '1 large onion diced', '1large bell pepper, diced', '2 ribs celery diced', '10 cloves garlic, crushed', '4 bay leaves', '12 ounces amber-style beer', '5 cups chicken-stock', '1/2 teaspoon cayenne pepper', '1 pound andouille sausage, bite sized pieces', 'rice for serving', 'green onions for garnish'], instructions: ['Preheat the oven to 400°F. Season the chicken thighs with 2 teaspoons of the salt and 1 teaspoon of the black pepper. Place on a rimmed baking sheet, skin side up, and roast for 20 minutes, or until the skin is lightly browned. Remove from the oven and set aside. Don’t throw that fat away, it’s going in the gumbo later.', 'In a heavy Dutch oven over medium heat, make a dark roux by simmering the oil and flour for about 45 minutes. Once the roux is the color of milk chocolate, add the trinity of onion, bell pepper, and celery and stir once every 5 seconds for about a minute until the vegetables begin to soften and caramelize. The roux is rocking hot, so these vegetables are going to cook really quickly. Don’t walk away! After a minute, add the garlic and bay leaves and cook for another 30 seconds, stirring frequently.', 'Deglaze the pot with the beer, scraping the bottom with a wooden spoon until all the browned bits are released. Stir constantly until it returns to a simmer. Add the stock and continue stirring until it returns to a simmer. Add the remaining 1 teaspoon salt and 1 teaspoon black pepper and the cayenne. Add the reserved chicken thighs (skin, bones, everything) and their fat and the sausage. Bring back to a bare simmer, being careful not to let it boil and not to let the roux scorch, reduce the heat to the lowest setting on your stove, and cover. Simmer for 3 hours, stirring every 30 minutes, scraping the bottom each time. Your gumbo should begin to thicken, but not like gravy. If it starts getting too thick before the 3 hours are up and you have to hit it with a little water to thin it, do so.', 'Do not skim that fat off the top!!!!', 'Serve with rice. Garnish with sliced green onions. If you want to bump up the heat, add a little scoop of pepper paste']},
+  { name: 'Pecan Pie', picture: Pie, id: 3, ingredients: [], instructions: []},
+  { name: 'Gochujang Shortribs', picture: ShortRibs, id: 4, ingredients: [], instructions: []},
 ];
 
 class Page {
@@ -92,6 +92,53 @@ class Page {
       this.contentWrapper.appendChild(recipesDiv);
     }
   };
+
+  individualRecipePageBody (ingredients, instructions) {
+    this.ingredients = ingredients;
+    this.instructions = instructions;
+    this.contentWrapper.innerHTML = '';
+
+    const instructionsAndIngredients = document.createElement('div');
+    const pageTitle = document.createElement('h2');
+    const headerImage = new Image();
+    const ingredientList = document.createElement('ul');
+    const ingredientDiv = document.createElement('div');
+    const instructionsList = document.createElement('div');
+    const ingredientsHeader = document.createElement('h2');
+    const instructionsHeader = document.createElement('h2');
+    
+    pageTitle.innerText = this.bodyTopper;
+    ingredientsHeader.innerText = 'Ingredients';
+    instructionsHeader.innerText = 'Instructions';
+
+    headerImage.src = this.images;
+    headerImage.classList = 'recipe-image';
+    ingredientDiv.classList = 'ingredient-div';
+    instructionsAndIngredients.classList = 'instructions-and-ingredients';
+    instructionsList.classList = 'instructions';
+    
+    instructionsList.appendChild(instructionsHeader);
+    this.contentWrapper.appendChild(pageTitle);
+    this.contentWrapper.appendChild(headerImage);
+    this.contentWrapper.appendChild(instructionsAndIngredients);
+
+    for(let i = 0; i < this.ingredients.length; i++) {
+      const ingredientListItem = document.createElement('li');
+      ingredientListItem.innerText = this.ingredients[i];
+      ingredientList.appendChild(ingredientListItem);
+    }
+
+    for(let i = 0; i < this.instructions.length; i++) {
+      const instructionListItem = document.createElement('div');
+      instructionListItem.innerText = this.instructions[i];
+      instructionsList.appendChild(instructionListItem);
+    }
+    ingredientDiv.appendChild(ingredientsHeader);
+    ingredientDiv.appendChild(ingredientList)
+    instructionsAndIngredients.appendChild(ingredientDiv);
+    instructionsAndIngredients.appendChild(instructionsList);
+
+  }
 };
 
 const headerContent = (() => {
@@ -143,7 +190,7 @@ const displayRecipePage = function (page) {
   for(let i = 0; i < recipes.length; i++) {
     console.log(recipes[i].id);
     if(recipes[i].id == page) {
-      const chosenRecipe = recipes[i];
+      var chosenRecipe = recipes[i];
       var chosenRecipePage = new Page(
         chosenRecipe.name, 
         pageBody, 
@@ -152,7 +199,7 @@ const displayRecipePage = function (page) {
         );
       }
     }
-    chosenRecipePage.homePageBody();
+    chosenRecipePage.individualRecipePageBody(chosenRecipe.ingredients, chosenRecipe.instructions);
 };
 
 const mainContent = function () {
