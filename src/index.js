@@ -5,8 +5,9 @@ import BagelAvocado from './images/bagel_avocado.jpg';
 import Gumbo from './images/gumbo.jpg';
 import ShortRibs from './images/shortribs.jpg';
 import Pie from './images/pie.jpg';
+
 const recipes = [
-  { name: 'Salmon Bagel with Avocado', picture: BagelAvocado, id: 1, ingredients: '<ul><li>Bagel</li><li>Smoked Salmon</li><li>Avocado</li><li>Pickeled Onions and Jalepenós</li><li>Hot Sauce</li></ul>' },
+  { name: 'Salmon Bagel with Avocado', picture: BagelAvocado, id: 1, ingredients: ['Bagels','Smoked Salmon','Avocado','Pickeled Onions and Jalepenós', 'Hot Sauce']},
   { name: 'Gumbo', picture: Gumbo, id: 2 },
   { name: 'Pecan Pie', picture: Pie, id: 3 },
   { name: 'Gochujang Shortribs', picture: ShortRibs, id: 4 },
@@ -93,51 +94,6 @@ class Page {
   };
 };
 
-const displayRecipePage = function (page) {
-  page = this.id;
-  const pageBody = document.querySelector('.recipe-page');
-  const instructionsHeader = document.createElement('h2');
-  const ingredientList = document.createElement('div');
-  switch (page) {
-    case '1':
-      pageBody.innerHTML = '';
-      pageBody.innerHTML = `<h1>Smoked Salmon Bagel and Avocado!</h1><img src=${BagelAvocado} class='recipe-image'>`;
-      pageBody.classList = 'recipe-page';
-      instructionsHeader.innerText = 'Ingredients'
-      ingredientList.innerHTML = '<ul><li>Bagel</li><li>Smoked Salmon</li><li>Avocado</li><li>Pickeled Onions and Jalepenós</li><li>Hot Sauce</li></ul>'
-      pageBody.appendChild(instructionsHeader);
-      pageBody.appendChild(ingredientList);
-      break;
-    case '2':
-      pageBody.innerHTML = '';
-      pageBody.innerHTML = `<h1>Gumbo</h1><br><img src=${Gumbo} class='recipe-image'>`;
-      pageBody.classList = 'recipe-page';
-      instructionsHeader.innerText = 'Ingredients';
-      ingredientList.innerHTML = '<ul><li>Bagel</li><li>Smoked Salmon</li><li>Avocado</li><li>Pickeled Onions and Jalepenós</li><li>Hot Sauce</li></ul>'
-      pageBody.appendChild(instructionsHeader);
-      pageBody.appendChild(ingredientList);
-      break;
-    case '3':
-      pageBody.innerHTML = '';
-      pageBody.innerHTML = `<h1>Pecan Pie!</h1><br><img src=${Pie} class='recipe-image'>`;
-      pageBody.classList = 'recipe-page';
-      instructionsHeader.innerText = 'Ingredients';
-      ingredientList.innerHTML = '<ul><li>Bagel</li><li>Smoked Salmon</li><li>Avocado</li><li>Pickeled Onions and Jalepenós</li><li>Hot Sauce</li></ul>'
-      pageBody.appendChild(instructionsHeader);
-      pageBody.appendChild(ingredientList);
-      break;
-    case '4':
-      pageBody.innerHTML = '';
-      pageBody.innerHTML = `<h1>Gochujang Short Ribs!</h1><br><img src=${ShortRibs} class='recipe-image'>`;
-      pageBody.classList = 'recipe-page';
-      instructionsHeader.innerText = 'Ingredients';
-      ingredientList.innerHTML = '<ul><li>Bagel</li><li>Smoked Salmon</li><li>Avocado</li><li>Pickeled Onions and Jalepenós</li><li>Hot Sauce</li></ul>'
-      pageBody.appendChild(instructionsHeader);
-      pageBody.appendChild(ingredientList);
-      break;
-  }
-};
-
 const headerContent = (() => {
   const createHeader = (() => {
     const headerDiv = document.createElement('div');
@@ -179,6 +135,25 @@ const headerContent = (() => {
   );
   homePage.homePageBody();
 })();
+
+const displayRecipePage = function (page) {
+  page = this.id;
+  const pageBody = document.querySelector('.recipe-page');
+  console.log(pageBody);
+  for(let i = 0; i < recipes.length; i++) {
+    console.log(recipes[i].id);
+    if(recipes[i].id == page) {
+      const chosenRecipe = recipes[i];
+      var chosenRecipePage = new Page(
+        chosenRecipe.name, 
+        pageBody, 
+        'recipe-page', 
+        chosenRecipe.picture
+        );
+      }
+    }
+    chosenRecipePage.homePageBody();
+};
 
 const mainContent = function () {
   const pageBody = document.querySelector('.home-page');
