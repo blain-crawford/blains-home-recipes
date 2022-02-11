@@ -95,9 +95,9 @@ class Page {
 
 const displayRecipePage = function (page) {
   page = this.id;
-  let pageBody = document.querySelector('.recipe-page');
-  let instructionsHeader = document.createElement('h2');
-  let ingredientList = document.createElement('div');
+  const pageBody = document.querySelector('.recipe-page');
+  const instructionsHeader = document.createElement('h2');
+  const ingredientList = document.createElement('div');
   switch (page) {
     case '1':
       pageBody.innerHTML = '';
@@ -169,9 +169,9 @@ const headerContent = (() => {
     navBar.appendChild(contact);
     pageContent.appendChild(headerDiv);
   })();
-  let pageBody = document.createElement('div');
+  const pageBody = document.createElement('div');
   document.body.appendChild(pageBody);
-  let homePage = new Page(
+  const homePage = new Page(
     'Welcome to Chrain\'s Home Recipes!',
     pageBody,
     'home-page',
@@ -185,7 +185,7 @@ const mainContent = function () {
   document.body.appendChild(pageBody);
 
   const homePage = function () {
-    let homePage = new Page(
+    const homePage = new Page(
       'Welcome to Chrain\'s Home Recipes!',
       pageBody,
       'home-page',
