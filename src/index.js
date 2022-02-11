@@ -70,12 +70,12 @@ class Page {
 
     this.contentWrapper.appendChild(pageTitle);
     this.contentWrapper.appendChild(cooking);
-    let recipesDiv = document.createElement('div');
+    const recipesDiv = document.createElement('div');
 
     for (let i = 0; i < recipeList.length; i++) {
-      let individualRecipe = document.createElement('div');
-      let recipeName = document.createElement('h3');
-      let recipePic = new Image();
+      const individualRecipe = document.createElement('div');
+      const recipeName = document.createElement('h3');
+      const recipePic = new Image();
 
       recipesDiv.classList = 'recipe';
       recipePic.classList = 'recipe-image';
@@ -90,8 +90,8 @@ class Page {
       recipesDiv.appendChild(individualRecipe);
       this.contentWrapper.appendChild(recipesDiv);
     }
-  }
-}
+  };
+};
 
 const displayRecipePage = function (page) {
   page = this.id;
