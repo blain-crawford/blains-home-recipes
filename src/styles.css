@@ -82,7 +82,7 @@ h2 {
   height: 75px;
 }
 
-/* styles for home page */
+/* styles for home page and introduction page */
 .home-page {
   text-align: center;
   margin: 0 auto;
@@ -91,6 +91,12 @@ h2 {
 .home-image {
   width: 75%;
   height: auto;
+}
+
+.intro-container {
+  width: 50%;
+  margin: 15px auto 15px auto;
+  padding: 40px;
 }
 
 .recipe-page {
@@ -119,18 +125,6 @@ h2 {
   margin-bottom: 50px;
 }
 
-.individual-recipe-image {
-  width: 40%;
-  height: auto;
-  margin-bottom: 20px;
-  border-radius: 5%;
-}
-
-.intro-container {
-  width: 50%;
-  margin: 15px auto 15px auto;
-  padding: 40px;
-}
 
 .recipe {
   display: flex;
@@ -140,6 +134,13 @@ h2 {
   flex-wrap: wrap;
   margin: 0;
   padding: 0;
+}
+
+.individual-recipe-image {
+  width: 40%;
+  height: auto;
+  margin-bottom: 20px;
+  border-radius: 5%;
 }
 
 .instructions-and-ingredients {
@@ -190,6 +191,7 @@ h2 {
   text-align: center;
 }
 
+/* styles for page footer */
 #footer {
   text-align: center;
   color: rgb(206, 128, 39);

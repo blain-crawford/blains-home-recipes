@@ -29,7 +29,9 @@ class Page {
     this.contentWrapper.appendChild(cooking);
     this.contentWrapper.appendChild(headerImage);
   }
-
+  /**
+   * generate cooks page
+   */
   cookPageBody() {
     this.contentWrapper.innerHTML = '';
 
@@ -50,7 +52,9 @@ class Page {
     this.contentWrapper.appendChild(headerImage);
     this.contentWrapper.appendChild(introContainer);
   }
-
+  /**
+   * generate page with all recipes
+   */
   recipesPageBody() {
     const recipeList = this.images;
     this.contentWrapper.innerHTML = '';
@@ -84,7 +88,11 @@ class Page {
       this.contentWrapper.appendChild(recipesDiv);
     }
   }
-
+  /**
+   * geerate page and take in ingredients and instructions for individual recipes
+   * @param {*} ingredients 
+   * @param {*} instructions 
+   */
   individualRecipePageBody(ingredients, instructions) {
     this.ingredients = ingredients;
     this.instructions = instructions;
@@ -133,6 +141,9 @@ class Page {
   }
 }
 
+/**
+ * auto run to create header and navbar for each page
+ */
 const headerContent = (() => {
   const createHeader = (() => {
     const headerDiv = document.createElement('div');
@@ -175,12 +186,14 @@ const headerContent = (() => {
   homePage.homePageBody();
 })();
 
+/**
+ * logic that reads recipe picture id and creates page data based on which recipe is selected
+ * @param {*} page 
+ */
 const displayRecipePage = function (page) {
   page = this.id;
   const pageBody = document.querySelector('.recipe-page');
-  console.log(pageBody);
   for (let i = 0; i < recipes.length; i++) {
-    console.log(recipes[i].id);
     if (recipes[i].id == page) {
       var chosenRecipe = recipes[i];
       var chosenRecipePage = new Page(
@@ -197,6 +210,9 @@ const displayRecipePage = function (page) {
   );
 };
 
+/**
+ * basic logic for creation of 3 main pages depending on which link clicked in navbar
+ */
 const mainContent = (() => {
   const pageBody = document.querySelector('.home-page');
   document.body.appendChild(pageBody);
@@ -234,6 +250,7 @@ const mainContent = (() => {
   return { homePage, recipesPage, cooksPage };
 })();
 
+// links are created, now to link to them and add event listeners
 const links = document.querySelectorAll('li');
 
 const switchPages = function () {
