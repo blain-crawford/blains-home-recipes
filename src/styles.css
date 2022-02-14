@@ -16,6 +16,14 @@ body {
   background-color: #dfdbdb;
 }
 
+a {
+  color: rgb(206, 128, 39);
+  -webkit-text-stroke: .5px black;
+  border-radius: 5%;
+  text-shadow: 5px 0px 10px rgba(155, 93, 46, 0.68);
+  text-decoration: none;
+}
+
 #content {
   width: 100%;
 }
