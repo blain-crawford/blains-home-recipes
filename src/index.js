@@ -18,8 +18,8 @@ class Page {
     this.contentWrapper.innerHTML = '';
 
     const pageTitle = document.createElement('h2');
-    const cooking = document.createElement('h3');
-    cooking.innerHTML = 'Click on Recipes to get cooking!';
+    const cookNavBaring = document.createElement('h3');
+    cookNavBaring.innerHTML = 'Click on Recipes to get cookNavBaring!';
     const headerImage = new Image();
 
     pageTitle.textContent = this.bodyTopper;
@@ -27,14 +27,14 @@ class Page {
     headerImage.classList = 'home-image';
 
     this.contentWrapper.appendChild(pageTitle);
-    this.contentWrapper.appendChild(cooking);
+    this.contentWrapper.appendChild(cookNavBaring);
     this.contentWrapper.appendChild(headerImage);
   }
 
   /**
-   * generate cooks page
+   * generate cookNavBars page
    */
-  cookPageBody() {
+  cookNavBarPageBody() {
     this.contentWrapper.innerHTML = '';
 
     const pageTitle = document.createElement('h2');
@@ -43,8 +43,7 @@ class Page {
     const headerImage = new Image();
 
     pageTitle.textContent = this.bodyTopper;
-    intro.textContent =
-      'Blain and Christina (Chrain) have been living together for nearly three years now.  Both are computer programmers and musicians by day, but at night, and on weekends, they specialize as cooks with many different specialties.  When not at work you can find them out seeing live music, playing video games with friends, or in the kitchen making the delicious food on this site, and much more!';
+    intro.textContent = 'Blain and Christina (Chrain) have been living together for nearly three years now.  Both are computer programmers and musicians by day, but at night, and on weekends, they specialize as cookNavBars with many different specialties.  When not at work you can find them out seeing live music, playing video games with friends, or in the kitchen making the delicious food on this site, and much more!';
     headerImage.src = this.images;
     headerImage.classList = 'home-image';
     introContainer.classList = 'intro-container';
@@ -56,30 +55,6 @@ class Page {
   }
 
   /**
- * logic that reads recipe picture id and creates page data based on which recipe is selected
- * @param {*} page
- */
-  displayRecipePage() {
-    const page = this.id;
-    const pageBody = document.querySelector('.recipe-page');
-    for (let i = 0; i < recipes.length; i++) {
-      if (recipes[i].id == page) {
-        var chosenRecipe = recipes[i];
-        var chosenRecipePage = new Page(
-          chosenRecipe.name,
-          pageBody,
-          'recipe-page',
-          chosenRecipe.picture
-        );
-      }
-    }
-    chosenRecipePage.individualRecipePageBody(
-      chosenRecipe.ingredients,
-      chosenRecipe.instructions
-    );
-  };
-
-  /**
    * generate page with all recipes
    */
   recipesPageBody() {
@@ -87,13 +62,13 @@ class Page {
     this.contentWrapper.innerHTML = '';
 
     const pageTitle = document.createElement('h2');
-    const cooking = document.createElement('h3');
-    cooking.innerHTML = 'Click on pictures for detailed recipe!';
+    const cookNavBaring = document.createElement('h3');
+    cookNavBaring.innerHTML = 'Click on pictures for detailed recipe!';
 
     pageTitle.textContent = this.bodyTopper;
 
     this.contentWrapper.appendChild(pageTitle);
-    this.contentWrapper.appendChild(cooking);
+    this.contentWrapper.appendChild(cookNavBaring);
     const recipesDiv = document.createElement('div');
 
     for (let i = 0; i < recipeList.length; i += 1) {
@@ -103,6 +78,7 @@ class Page {
 
       recipesDiv.classList = 'recipe';
       recipePic.classList = 'recipe-image';
+      // eslint-disable-next-line no-use-before-define
       recipePic.addEventListener('click', displayRecipePage, false);
 
       recipeName.innerText = recipeList[i].name;
@@ -118,8 +94,8 @@ class Page {
 
   /**
    * geerate page and take in ingredients and instructions for individual recipes
-   * @param {*} ingredients 
-   * @param {*} instructions 
+   * @param {*} ingredients
+   * @param {*} instructions
    */
   individualRecipePageBody(ingredients, instructions) {
     this.ingredients = ingredients;
@@ -150,18 +126,17 @@ class Page {
     this.contentWrapper.appendChild(headerImage);
     this.contentWrapper.appendChild(instructionsAndIngredients);
 
-    for (let i = 0; i < this.ingredients.length; i++) {
+    for (let i = 0; i < this.ingredients.length; i += 1) {
       const ingredientListItem = document.createElement('li');
       ingredientListItem.innerText = this.ingredients[i];
       ingredientList.appendChild(ingredientListItem);
     }
 
-    for (let i = 0; i < this.instructions.length; i++) {
+    for (let i = 0; i < this.instructions.length; i += 1) {
       const instructionListItem = document.createElement('div');
       instructionListItem.innerText = this.instructions[i];
       instructionsList.appendChild(instructionListItem);
     }
-    
     ingredientDiv.appendChild(ingredientsHeader);
     ingredientDiv.appendChild(ingredientList);
     instructionsAndIngredients.appendChild(ingredientDiv);
@@ -172,35 +147,37 @@ class Page {
 /**
  * auto run to create header and navbar for each page
  */
+// eslint-disable-next-line no-unused-vars
 const headerContent = (() => {
+  // eslint-disable-next-line no-unused-vars
   const createHeader = (() => {
     const headerDiv = document.createElement('div');
     const siteTitle = document.createElement('h1');
     const pageContent = document.getElementById('content');
     const navContainer = document.createElement('div');
     const navBar = document.createElement('ul');
-    const home = document.createElement('li');
-    const recipes = document.createElement('li');
-    const cook = document.createElement('li');
+    const homeNavBar = document.createElement('li');
+    const recipesNavBar = document.createElement('li');
+    const cookNavBar = document.createElement('li');
     const lowerHeader = document.createElement('div');
 
     siteTitle.innerText = 'Chrain\'s Home Recipes';
-    home.innerText = 'Home';
-    recipes.innerText = 'Recipes';
-    cook.innerText = 'The Cooks!';
+    homeNavBar.innerText = 'Home';
+    recipesNavBar.innerText = 'Recipes';
+    cookNavBar.innerText = 'The Cooks!';
 
     headerDiv.classList = 'header';
     navBar.classList = 'navbar';
     lowerHeader.classList = 'lowerheader';
-    home.classList = 'current-page';
+    homeNavBar.classList = 'current-page';
 
     headerDiv.appendChild(siteTitle);
     headerDiv.appendChild(navContainer);
     headerDiv.appendChild(lowerHeader);
     navContainer.appendChild(navBar);
-    navBar.appendChild(home);
-    navBar.appendChild(recipes);
-    navBar.appendChild(cook);
+    navBar.appendChild(homeNavBar);
+    navBar.appendChild(recipesNavBar);
+    navBar.appendChild(cookNavBar);
     pageContent.appendChild(headerDiv);
   })();
   const pageBody = document.createElement('div');
@@ -209,12 +186,33 @@ const headerContent = (() => {
     'Welcome to Chrain\'s Home Recipes!',
     pageBody,
     'home-page',
-    Ingredients
+    Ingredients,
   );
   homePage.homePageBody();
 })();
 
-
+/**
+ * logic that reads recipe picture id and creates page data based on which recipe is selected
+ */
+function displayRecipePage() {
+  const page = this.id;
+  const pageBody = document.querySelector('.recipe-page');
+  for (let i = 0; i < recipes.length; i += 1) {
+    if (recipes[i].id === parseInt(page, 10)) {
+      const chosenRecipe = recipes[i];
+      const chosenRecipePage = new Page(
+        chosenRecipe.name,
+        pageBody,
+        'recipe-page',
+        chosenRecipe.picture,
+      );
+      chosenRecipePage.individualRecipePageBody(
+        chosenRecipe.ingredients,
+        chosenRecipe.instructions,
+      );
+    }
+  }
+}
 
 /**
  * basic logic for creation of 3 main pages depending on which link clicked in navbar
@@ -223,48 +221,49 @@ const mainContent = (() => {
   const pageBody = document.querySelector('.home-page');
   document.body.appendChild(pageBody);
 
-  const homePage = function () {
-    const homePage = new Page(
+  const homePage = () => {
+    const chrainHomePage = new Page(
       'Welcome to Chrain\'s Home Recipes!',
       pageBody,
       'home-page',
-      Ingredients
+      Ingredients,
     );
-    homePage.homePageBody();
+    chrainHomePage.homePageBody();
   };
 
-  const recipesPage = function () {
+  const recipesPage = () => {
     const recipePage = new Page(
       'The real star of the show. . .the FOOD!',
       pageBody,
       'recipe-page',
-      recipes
+      recipes,
     );
     recipePage.recipesPageBody();
   };
 
-  const cooksPage = function () {
-    const cooksPage = new Page(
-      'Let\'s meet our cooks!!',
+  const cookNavBarsPage = () => {
+    const chrainCookNavBarsPage = new Page(
+      'Let\'s meet our cookNavBars!!',
       pageBody,
       'home-page',
-      Chrain
+      Chrain,
     );
-    cooksPage.cookPageBody();
+    chrainCookNavBarsPage.cookNavBarPageBody();
   };
 
-  return { homePage, recipesPage, cooksPage };
+  return { homePage, recipesPage, cookNavBarsPage };
 })();
 
 // links are created, now to link to them and add event listeners
 const links = document.querySelectorAll('li');
 
-const switchPages = function () {
+function switchPages() {
   links.forEach((link) => {
     link.classList.remove('current-page');
   });
   this.classList.add('current-page');
 
+  // eslint-disable-next-line default-case
   switch (this.textContent) {
     case 'Home':
       mainContent.homePage();
@@ -273,10 +272,10 @@ const switchPages = function () {
       mainContent.recipesPage();
       break;
     case 'The Cooks!':
-      mainContent.cooksPage();
+      mainContent.cookNavBarsPage();
       break;
   }
-};
+}
 
 links.forEach((link) => {
   link.addEventListener('click', switchPages.bind(link));
