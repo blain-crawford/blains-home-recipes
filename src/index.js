@@ -43,7 +43,8 @@ class Page {
     const headerImage = new Image();
 
     pageTitle.textContent = this.bodyTopper;
-    intro.textContent = 'Blain and Christina (Chrain) have been living together for nearly three years now.  Both are computer programmers and musicians by day, but at night, and on weekends, they specialize as cookNavBars with many different specialties.  When not at work you can find them out seeing live music, playing video games with friends, or in the kitchen making the delicious food on this site, and much more!';
+    intro.textContent =
+      'Blain and Christina (Chrain) have been living together for nearly three years now.  Both are computer programmers and musicians by day, but at night, and on weekends, they specialize as cookNavBars with many different specialties.  When not at work you can find them out seeing live music, playing video games with friends, or in the kitchen making the delicious food on this site, and much more!';
     headerImage.src = this.images;
     headerImage.classList = 'home-image';
     introContainer.classList = 'intro-container';
@@ -161,7 +162,7 @@ const headerContent = (() => {
     const cookNavBar = document.createElement('li');
     const lowerHeader = document.createElement('div');
 
-    siteTitle.innerText = "Chrain's Home Recipes";
+    siteTitle.innerText = 'Chrain\'s Home Recipes';
     homeNavBar.innerText = 'Home';
     recipesNavBar.innerText = 'Recipes';
     cookNavBar.innerText = 'The Cooks!';
@@ -183,10 +184,10 @@ const headerContent = (() => {
   const pageBody = document.createElement('div');
   document.body.appendChild(pageBody);
   const homePage = new Page(
-    "Welcome to Chrain's Home Recipes!",
+    'Welcome to Chrain\'s Home Recipes!',
     pageBody,
     'home-page',
-    Ingredients,
+    Ingredients
   );
   homePage.homePageBody();
 })();
@@ -204,11 +205,11 @@ function displayRecipePage() {
         chosenRecipe.name,
         pageBody,
         'recipe-page',
-        chosenRecipe.picture,
+        chosenRecipe.picture
       );
       chosenRecipePage.individualRecipePageBody(
         chosenRecipe.ingredients,
-        chosenRecipe.instructions,
+        chosenRecipe.instructions
       );
     }
   }
@@ -223,10 +224,10 @@ const mainContent = (() => {
 
   const homePage = () => {
     const chrainHomePage = new Page(
-      "Welcome to Chrain's Home Recipes!",
+      'Welcome to Chrain\'s Home Recipes!',
       pageBody,
       'home-page',
-      Ingredients,
+      Ingredients
     );
     chrainHomePage.homePageBody();
   };
@@ -236,17 +237,17 @@ const mainContent = (() => {
       'The real star of the show. . .the FOOD!',
       pageBody,
       'recipe-page',
-      recipes,
+      recipes
     );
     recipePage.recipesPageBody();
   };
 
   const cookNavBarsPage = () => {
     const chrainCookNavBarsPage = new Page(
-      "Let's meet our cooks!!",
+      'Let\'s meet our cooks!!',
       pageBody,
       'home-page',
-      Chrain,
+      Chrain
     );
     chrainCookNavBarsPage.cookNavBarPageBody();
   };
