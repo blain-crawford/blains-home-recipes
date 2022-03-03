@@ -1,4 +1,4 @@
-import { recipes } from './recipes';
+import recipes from './recipes';
 import './styles.css';
 import Ingredients from './images/ingredients.jpg';
 import Chrain from './images/chrain.jpg';
@@ -10,6 +10,7 @@ class Page {
     this.contentWrapper.classList = pageClass;
     this.images = images;
   }
+
   /**
    * generate home page
    */
@@ -29,6 +30,7 @@ class Page {
     this.contentWrapper.appendChild(cooking);
     this.contentWrapper.appendChild(headerImage);
   }
+
   /**
    * generate cooks page
    */
@@ -52,6 +54,31 @@ class Page {
     this.contentWrapper.appendChild(headerImage);
     this.contentWrapper.appendChild(introContainer);
   }
+
+  /**
+ * logic that reads recipe picture id and creates page data based on which recipe is selected
+ * @param {*} page
+ */
+  displayRecipePage() {
+    const page = this.id;
+    const pageBody = document.querySelector('.recipe-page');
+    for (let i = 0; i < recipes.length; i++) {
+      if (recipes[i].id == page) {
+        var chosenRecipe = recipes[i];
+        var chosenRecipePage = new Page(
+          chosenRecipe.name,
+          pageBody,
+          'recipe-page',
+          chosenRecipe.picture
+        );
+      }
+    }
+    chosenRecipePage.individualRecipePageBody(
+      chosenRecipe.ingredients,
+      chosenRecipe.instructions
+    );
+  };
+
   /**
    * generate page with all recipes
    */
@@ -69,7 +96,7 @@ class Page {
     this.contentWrapper.appendChild(cooking);
     const recipesDiv = document.createElement('div');
 
-    for (let i = 0; i < recipeList.length; i++) {
+    for (let i = 0; i < recipeList.length; i += 1) {
       const individualRecipe = document.createElement('div');
       const recipeName = document.createElement('h3');
       const recipePic = new Image();
@@ -88,6 +115,7 @@ class Page {
       this.contentWrapper.appendChild(recipesDiv);
     }
   }
+
   /**
    * geerate page and take in ingredients and instructions for individual recipes
    * @param {*} ingredients 
@@ -186,29 +214,7 @@ const headerContent = (() => {
   homePage.homePageBody();
 })();
 
-/**
- * logic that reads recipe picture id and creates page data based on which recipe is selected
- * @param {*} page 
- */
-const displayRecipePage = function (page) {
-  page = this.id;
-  const pageBody = document.querySelector('.recipe-page');
-  for (let i = 0; i < recipes.length; i++) {
-    if (recipes[i].id == page) {
-      var chosenRecipe = recipes[i];
-      var chosenRecipePage = new Page(
-        chosenRecipe.name,
-        pageBody,
-        'recipe-page',
-        chosenRecipe.picture
-      );
-    }
-  }
-  chosenRecipePage.individualRecipePageBody(
-    chosenRecipe.ingredients,
-    chosenRecipe.instructions
-  );
-};
+
 
 /**
  * basic logic for creation of 3 main pages depending on which link clicked in navbar
