@@ -19,7 +19,7 @@ class Page {
 
     const pageTitle = document.createElement('h2');
     const cookNavBaring = document.createElement('h3');
-    cookNavBaring.innerHTML = 'Click on Recipes to get cookNavBaring!';
+    cookNavBaring.innerHTML = 'Click on Recipes to get cooking!';
     const headerImage = new Image();
 
     pageTitle.textContent = this.bodyTopper;
@@ -243,7 +243,7 @@ const mainContent = (() => {
 
   const cookNavBarsPage = () => {
     const chrainCookNavBarsPage = new Page(
-      'Let\'s meet our cookNavBars!!',
+      'Let\'s meet our cooks!!',
       pageBody,
       'home-page',
       Chrain,
