@@ -162,7 +162,7 @@ const headerContent = (() => {
     const cookNavBar = document.createElement('li');
     const lowerHeader = document.createElement('div');
 
-    siteTitle.innerText = 'Chrain\'s Home Recipes';
+    siteTitle.innerText = "Chrain's Home Recipes";
     homeNavBar.innerText = 'Home';
     recipesNavBar.innerText = 'Recipes';
     cookNavBar.innerText = 'The Cooks!';
@@ -184,7 +184,7 @@ const headerContent = (() => {
   const pageBody = document.createElement('div');
   document.body.appendChild(pageBody);
   const homePage = new Page(
-    'Welcome to Chrain\'s Home Recipes!',
+    "Welcome to Chrain's Home Recipes!",
     pageBody,
     'home-page',
     Ingredients
@@ -224,7 +224,7 @@ const mainContent = (() => {
 
   const homePage = () => {
     const chrainHomePage = new Page(
-      'Welcome to Chrain\'s Home Recipes!',
+      "Welcome to Chrain's Home Recipes!",
       pageBody,
       'home-page',
       Ingredients
@@ -244,7 +244,7 @@ const mainContent = (() => {
 
   const cookNavBarsPage = () => {
     const chrainCookNavBarsPage = new Page(
-      'Let\'s meet our cooks!!',
+      "Let's meet our cooks!!",
       pageBody,
       'home-page',
       Chrain
