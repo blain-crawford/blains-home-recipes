@@ -13,6 +13,7 @@ https://blain-crawford.github.io/blains-home-recipes/
   - html
   - npm
   - webpack
+  - babel
 
 ## Running the Application
   - Clone Repository
